@@ -1,6 +1,6 @@
 # U.S. State Auto Repair Estimate Laws
 
-State-by-state dataset (50 states and the District of Columbia) of the laws and regulations that govern written auto repair estimates in the United States. Compiled and published by RepairWorth (https://repairworth.com/car-repair-estimate/). Release 2026-09-30.
+State-by-state dataset (50 states and the District of Columbia) of the laws and regulations that govern written auto repair estimates in the United States. Compiled and published by RepairWorth (https://repairworth.com/car-repair-estimate/). Release 2026-10-02.
 
 **Not legal advice. Verify the official text.** This dataset summarizes public legal texts for research and consumer information. Laws change, and a short summary can miss exceptions. Read the official text, or ask a lawyer, before relying on any row.
 
@@ -17,7 +17,7 @@ The same table is published, with a checker for written estimates, at https://re
 | File | Content |
 |---|---|
 | `us-state-auto-repair-estimate-laws.csv` | One row per jurisdiction (51 rows, 18 columns) |
-| `evidence.csv` | 198 quotes from official sources, one row per supported field, with the source URL and the retrieval date |
+| `evidence.csv` | 270 quotes from official sources, one row per supported field, with the source URL and the retrieval date |
 | `LICENSE` | Creative Commons Attribution 4.0 International, full legal text |
 
 Both CSV files are UTF-8 with a header row and LF line endings.
@@ -35,9 +35,9 @@ The sources behind RepairWorth data are listed at https://repairworth.com/data-s
 
 | Status | Meaning | Rows |
 |---|---|---|
-| `verified` | The official text was read and the row names a statute or rule. Rule values come from that text. | 33 |
-| `no_statute_found` | An official source was read on the date given and no dedicated statute was found (`official_url`, `checked_on`). This is a negative finding: it cannot be proven by quotation. Rule cells are empty. | 2 |
-| `lead` | The official text was not read; any citation or reference kept in the record is a pointer to follow up, and the rule fields are empty. | 16 |
+| `verified` | The official text was read and the row names a statute or rule. Rule values come from that text. | 40 |
+| `no_statute_found` | An official source was read on the date given and no dedicated statute was found (`official_url`, `checked_on`). This is a negative finding: it cannot be proven by quotation. Rule cells are empty. | 4 |
+| `lead` | The official text was not read; any citation or reference kept in the record is a pointer to follow up, and the rule fields are empty. | 7 |
 
 An empty cell means "not established from the source read". It does not mean "no rule".
 
@@ -59,7 +59,7 @@ An empty cell means "not established from the source read". It does not mean "no
 | `return_of_replaced_parts` | Rule on returning replaced parts to the customer. |
 | `shop_registration_required` | Whether repair shops must register with the state. |
 | `diagnostic_or_teardown_fee_disclosure` | Rule on disclosing estimate, diagnostic or teardown charges. |
-| `verified_quote` | Short verbatim quote from the official source. |
+| `verified_quote` | Short verbatim quote from the official source. Empty unless status is verified. |
 | `checked_on` | Date (ISO 8601) the official text was read, or the search was run for rows that are not `verified`. |
 | `effective_version` | Version or effective date of the text read, when the source states it. |
 | `note` | Scope limits, exceptions, the reason a row is not `verified`, and any rule value that has no field-level quote. |
@@ -81,7 +81,7 @@ An empty cell means "not established from the source read". It does not mean "no
 - `no_statute_found` covers only the official pages that were read (see `note`) and cannot be proven by quotation. Another chapter, a regulation or a general consumer-protection law may still apply.
 - On `verified` rows, every rule cell has at least one quote filed under its own field in `evidence.csv`.
 - `evidence.csv` also holds quotes for rows that are not `verified` (for example an enacting session law whose current codified text was not read). They document the search, not a published rule value.
-- Some official sites could not be read by an automated tool (JavaScript-only pages, bot blocks, codes published only by a commercial publisher). Those rows are `lead`.
+- Some official sites could not be read by an automated tool (JavaScript-only pages, bot blocks, codes published only by a commercial publisher). Those rows are .
 
 ## License
 
@@ -89,4 +89,4 @@ The compilation (selection, structure, summaries and annotations) is released un
 
 ## How to cite
 
-RepairWorth (2026). U.S. State Auto Repair Estimate Laws (release 2026-09-30) [Data set]. https://repairworth.com/car-repair-estimate/
+RepairWorth (2026). U.S. State Auto Repair Estimate Laws (release 2026-10-02) [Data set]. https://repairworth.com/car-repair-estimate/
